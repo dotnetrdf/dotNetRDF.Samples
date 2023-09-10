@@ -9,7 +9,7 @@ namespace dotNetRdf.Samples.Tutorials
 
     public class HelloWorld
     {
-        public static void Main(String[] args)
+        public static void Main()
         {
             Console.WriteLine(Environment.CurrentDirectory);
 

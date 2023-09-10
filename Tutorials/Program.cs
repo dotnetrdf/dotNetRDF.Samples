@@ -1,4 +1,5 @@
 ﻿using dotNetRdf.Samples.Tutorials;
 
-HelloWorld.Main(args);
+HelloWorld.Main();
+ReadGraphFromFile.Main();
 Console.ReadKey();
