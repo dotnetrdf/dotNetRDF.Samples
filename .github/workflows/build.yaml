@@ -1,0 +1,16 @@
+name: Build Samples
+on: [push, pull_request]
+
+env:
+  VSTEST_CONNECTION_TIMEOUT: 180
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Build Project
+      run: dotnet build -c Release dotNetRDF.Samples.sln

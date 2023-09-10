@@ -1,0 +1,6 @@
+@prefix ex: <http://dotnetrdf.org/ns/example/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:A a ex:Example;
+  rdfs:label "Example A";
+  rdfs:comment "This is just a simple example"@en .

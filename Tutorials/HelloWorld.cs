@@ -4,32 +4,36 @@ using VDS.RDF;
 using VDS.RDF.Writing;
 using VDS.RDF.Parsing;
 
-public class HelloWorld
+namespace dotNetRdf.Samples.Tutorials
 {
-    public static void Main(String[] args)
+
+    public class HelloWorld
     {
-        Console.WriteLine(Environment.CurrentDirectory);
-
-        Graph g = new Graph();
-
-        IUriNode dotNetRDF = g.CreateUriNode(new Uri("http://www.dotnetrdf.org"));
-        IUriNode says = g.CreateUriNode(new Uri("http://example.org/says"));
-        ILiteralNode helloWorld = g.CreateLiteralNode("Hello World");
-        ILiteralNode bonjourMonde = g.CreateLiteralNode("Bonjour tout le Monde", "fr");
-
-        g.Assert(new Triple(dotNetRDF, says, helloWorld));
-        g.Assert(new Triple(dotNetRDF, says, bonjourMonde));
-
-        foreach (Triple t in g.Triples)
+        public static void Main()
         {
-            Console.WriteLine(t.ToString());
+            Console.WriteLine(Environment.CurrentDirectory);
+
+            Graph g = new Graph();
+
+            IUriNode dotNetRDF = g.CreateUriNode(new Uri("http://www.dotnetrdf.org"));
+            IUriNode says = g.CreateUriNode(new Uri("http://example.org/says"));
+            ILiteralNode helloWorld = g.CreateLiteralNode("Hello World");
+            ILiteralNode bonjourMonde = g.CreateLiteralNode("Bonjour tout le Monde", "fr");
+
+            g.Assert(new Triple(dotNetRDF, says, helloWorld));
+            g.Assert(new Triple(dotNetRDF, says, bonjourMonde));
+
+            foreach (Triple t in g.Triples)
+            {
+                Console.WriteLine(t.ToString());
+            }
+
+            NTriplesWriter ntwriter = new NTriplesWriter();
+            ntwriter.Save(g, "HelloWorld.nt");
+
+            RdfXmlWriter rdfxmlwriter = new RdfXmlWriter();
+            rdfxmlwriter.Save(g, "HelloWorld.rdf");
         }
-
-        NTriplesWriter ntwriter = new NTriplesWriter();
-        ntwriter.Save(g, "HelloWorld.nt");
-
-        RdfXmlWriter rdfxmlwriter = new RdfXmlWriter();
-        rdfxmlwriter.Save(g, "HelloWorld.rdf");
     }
 }
 

@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using VDS.RDF;
-using VDS.RDF.Parsing;
-using VDS.RDF.Writing;
+﻿using dotNetRdf.Samples.Tutorials;
 
-namespace Tutorials
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            HelloWorld.Main(args);
-            Console.ReadKey();
-        }
-    }
-}
+HelloWorld.Main();
+ReadGraphFromFile.Main();
+Console.ReadKey();
